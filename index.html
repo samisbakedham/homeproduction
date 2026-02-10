@@ -264,6 +264,32 @@
     }
     .panel ul{list-style:none;display:grid;gap:8px;font-size:0.95rem}
     .panel strong{color:#2b3d57}
+    .model-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:16px;margin-top:18px}
+    .rate-table{margin-top:12px;border:1px solid var(--ink);background:#fff6df}
+    .rate-row{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:10px;padding:10px 12px;border-bottom:1px solid rgba(14,27,46,0.12);font-size:0.9rem}
+    .rate-row:last-child{border-bottom:none}
+    .rate-row span{font-weight:600;color:#233349}
+    .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:12px}
+    .control{display:flex;flex-direction:column;gap:6px}
+    .control label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:#41556e;font-weight:600}
+    .control input,.control select{padding:10px 12px;border:1.5px solid var(--ink);background:#fff; font-family:"IBM Plex Sans",sans-serif}
+    .control input[type="range"]{padding:0;height:24px}
+    .control-note{font-size:0.85rem;color:#41556e}
+    .stat-row{display:grid;gap:8px;margin-top:12px}
+    .stat-row div{display:flex;justify-content:space-between;font-size:0.95rem}
+    .big-figure{font-family:"Bebas Neue", sans-serif;font-size:2.2rem;letter-spacing:0.08em;margin-top:12px}
+    .price-shield{margin-top:16px}
+    .roi-block{margin-top:18px;border:1.5px solid var(--ink);padding:18px;background:#f9f2e0}
+    .roi-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:10px 0 12px;font-size:0.95rem}
+    .roi-chart{width:100%;height:auto;border:1px solid rgba(14,27,46,0.18);background:#fffaf0}
+    .roi-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:0.85rem;color:#3a4b63}
+    .roi-key{display:flex;align-items:center;gap:8px}
+    .roi-swatch{width:26px;height:4px;background:var(--brick)}
+    .roi-swatch.loan{background:var(--teal)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:2px solid var(--ink);background:var(--ink);color:#fff;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--ink)}
+    .status{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1.5px solid var(--ink);background:#fff;font-weight:600;margin:8px 0 12px}
+    .code{background:#0e1b2e;color:#fef6e4;padding:12px;border-radius:6px;font-size:0.78rem;overflow:auto;white-space:pre-wrap}
 
     footer{
       margin-top:34px;
@@ -284,6 +310,7 @@
       .hero{grid-template-columns:1fr}
       .powerwall{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
+      .model-grid{grid-template-columns:1fr}
       h1{font-size:3rem}
       .monthly-chart{grid-template-columns:repeat(6,1fr);height:auto}
       .bar-stack{height:140px}
@@ -293,6 +320,8 @@
       h1{font-size:2.4rem}
       .hero-card{gap:12px}
       .monthly-chart{grid-template-columns:repeat(4,1fr)}
+      .rate-row{grid-template-columns:1fr}
+      .btn{width:100%;justify-content:center}
     }
     @media (prefers-reduced-motion: reduce){
       .reveal{animation:none}
@@ -480,6 +509,146 @@
       <p class="fineprint">Peak production month: May (1,422 kWh). Lowest month: January (138 kWh).</p>
     </section>
 
+    <section class="section reveal" style="--delay:0.4s">
+      <div class="section-title">Rate Plan + Savings Model</div>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>PG&amp;E TOU-D Schedule (NEM 3.0)</h3>
+          <ul>
+            <li><strong>Peak Window:</strong> 5–8 pm, weekdays</li>
+            <li><strong>Off-Peak:</strong> all other hours</li>
+            <li><strong>Summer:</strong> June–September</li>
+            <li><strong>Winter:</strong> October–May</li>
+          </ul>
+          <div class="rate-table" aria-label="TOU-D total bundled rates">
+            <div class="rate-row"><span>Season</span><span>Peak</span><span>Off-Peak</span></div>
+            <div class="rate-row"><span>Summer</span><span>$0.53623</span><span>$0.40127</span></div>
+            <div class="rate-row"><span>Winter</span><span>$0.44662</span><span>$0.40801</span></div>
+          </div>
+          <p class="fineprint">Rates shown are total bundled TOU-D prices effective January 1, 2026. Adjust as utility pricing changes.</p>
+        </div>
+        <div class="panel">
+          <h3>NBT Export Credits</h3>
+          <ul>
+            <li><strong>Export credits:</strong> based on CPUC avoided cost values.</li>
+            <li><strong>ACC Plus adder:</strong> varies by interconnection year.</li>
+            <li><strong>Powerwall impact:</strong> keeps solar on-site when export credits are lower.</li>
+          </ul>
+          <div class="form-grid">
+            <div class="control">
+              <label for="accBase">ACC Base ($/kWh)</label>
+              <input id="accBase" class="model-input" type="number" step="0.001" value="0.05">
+            </div>
+            <div class="control">
+              <label for="accPlus">ACC Plus Adder</label>
+              <select id="accPlus" class="model-input">
+                <option value="0.0132">2025 interconnection (+$0.0132)</option>
+                <option value="0.0088">2026 interconnection (+$0.0088)</option>
+              </select>
+            </div>
+          </div>
+          <p class="fineprint">Export credits are time-varying; the model uses an editable average value.</p>
+        </div>
+      </div>
+
+      <div class="model-grid">
+        <div class="panel">
+          <h3>Model Assumptions (Editable)</h3>
+          <div class="form-grid">
+            <div class="control">
+              <label for="peakShare">Peak Share of Imports</label>
+              <input id="peakShare" class="model-input" type="range" min="0" max="60" value="25">
+              <div class="control-note"><span id="peakShareLabel">25%</span> of grid imports at peak rates</div>
+            </div>
+            <div class="control">
+              <label for="priceEscalation">Utility Price Escalation</label>
+              <input id="priceEscalation" class="model-input" type="number" step="0.1" value="3">
+              <div class="control-note">Percent per year</div>
+            </div>
+            <div class="control">
+              <label for="systemCost">System Cost</label>
+              <input id="systemCost" class="model-input" type="number" step="100" value="22000">
+            </div>
+            <div class="control">
+              <label for="rebate">Rebate Check</label>
+              <input id="rebate" class="model-input" type="number" step="100" value="13000">
+            </div>
+            <div class="control">
+              <label for="financedAmount">Financed Amount</label>
+              <input id="financedAmount" class="model-input" type="number" step="100" value="9000">
+            </div>
+            <div class="control">
+              <label for="loanApr">Loan APR</label>
+              <input id="loanApr" class="model-input" type="number" step="0.01" value="7.25">
+            </div>
+            <div class="control">
+              <label for="loanTerm">Loan Term (Years)</label>
+              <input id="loanTerm" class="model-input" type="number" step="1" value="10">
+            </div>
+          </div>
+          <p class="fineprint">Update financed amount if your loan covered the full system cost before the rebate check was applied.</p>
+        </div>
+
+        <div class="panel">
+          <h3>Estimated 2025 Bill Impact</h3>
+          <div class="stat-row">
+            <div><span>Utility Cost Without Solar</span><strong id="billNoSolar">$0</strong></div>
+            <div><span>Utility Cost With Solar</span><strong id="billWithSolar">$0</strong></div>
+            <div><span>Export Credits</span><strong id="exportCredits">$0</strong></div>
+            <div><span>Net Energy Bill</span><strong id="netBill">$0</strong></div>
+          </div>
+          <div class="big-figure">Annual Savings: <span id="annualSavings">$0</span></div>
+          <div class="stat-row">
+            <div><span>Loan Payment (Monthly)</span><strong id="loanPayment">$0</strong></div>
+            <div><span>Loan Payment (Annual)</span><strong id="loanPaymentAnnual">$0</strong></div>
+          </div>
+          <p class="fineprint">Modeled from your 2025 energy flows with TOU-D rates and average export credits.</p>
+        </div>
+      </div>
+
+      <div class="panel price-shield">
+        <h3>Protection From Rising Energy Prices</h3>
+        <p>With solar + Powerwall supplying <strong id="shieldPct">56.1%</strong> of annual usage, only <strong id="exposedPct">43.9%</strong> remains exposed to utility price increases. A 1% retail rate increase adds about <strong id="rateShock">$0</strong> per year to the grid-supplied portion at today’s import volume.</p>
+        <p class="fineprint">Powerwall time-shifted 4,417 kWh of solar into evening hours, reducing peak-rate exposure.</p>
+      </div>
+
+      <div class="roi-block">
+        <h3>ROI Over Time (25-Year View)</h3>
+        <div class="roi-meta">
+          <div><strong>Cash Payback:</strong> <span id="paybackCash">—</span></div>
+          <div><strong>Financed Payback:</strong> <span id="paybackLoan">—</span></div>
+          <div><strong>Net System Cost:</strong> <span id="netCost">$0</span></div>
+          <div><strong>Total Interest (Loan Term):</strong> <span id="loanInterest">$0</span></div>
+        </div>
+        <svg class="roi-chart" id="roiChart" viewBox="0 0 720 260" role="img" aria-label="ROI chart for cumulative savings">
+          <rect x="0" y="0" width="720" height="260" fill="none"></rect>
+          <line id="roiZero" x1="40" x2="700" y1="130" y2="130" stroke="#2b3d57" stroke-width="1" stroke-dasharray="4 6"></line>
+          <path id="roiCashPath" d="" fill="none" stroke="#b7422a" stroke-width="3"></path>
+          <path id="roiLoanPath" d="" fill="none" stroke="#2d6e6a" stroke-width="3"></path>
+        </svg>
+        <div class="roi-legend">
+          <div class="roi-key"><span class="roi-swatch"></span>Cash purchase cumulative savings</div>
+          <div class="roi-key"><span class="roi-swatch loan"></span>Financed net cashflow</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" style="--delay:0.35s">
+      <div class="section-title">Live Tesla Data Connector</div>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Live Feed Status</h3>
+          <div class="status" id="liveStatus">Static 2025 dataset loaded</div>
+          <button class="btn" id="liveBtn">Connect Live Tesla Feed</button>
+          <p class="fineprint">This page expects a secure local proxy at <strong>/api/tesla-energy</strong>. Tokens should never live in the browser.</p>
+        </div>
+        <div class="panel">
+          <h3>Expected Payload (JSON)</h3>
+          <pre class="code">{\n  \"months\": [\"Jan\",\"Feb\",\"Mar\",...],\n  \"homeKwh\": [151.1,802.1,1181.5,...],\n  \"gridImportKwh\": [0.0,462.1,724.8,...],\n  \"gridExportKwh\": [0.0,0.1,28.4,...]\n}</pre>
+        </div>
+      </div>
+    </section>
+
     <section class="section reveal" style="--delay:0.3s">
       <div class="section-title">System Configuration + Grid Ledger</div>
       <div class="grid-2">
@@ -489,6 +658,7 @@
             <li><strong>Solar Array:</strong> 8.2 kW</li>
             <li><strong>Storage:</strong> 2× Powerwall (13.5 kWh each)</li>
             <li><strong>Total Storage:</strong> 27 kWh usable</li>
+            <li><strong>Rate Plan:</strong> NEM 3.0 TOU-D</li>
             <li><strong>Coverage Window:</strong> January–December 2025</li>
           </ul>
         </div>
@@ -506,8 +676,199 @@
 
     <footer>
       <div><strong>Data Source:</strong> Tesla energy flow export (monthly totals). Values converted from Wh to kWh and rounded to nearest whole kWh where shown.</div>
-      <div class="fineprint">All figures refer to 2025 only. Report refreshed February 10, 2026 for 5848 Lady Bells Dr, Orcutt, CA 93455.</div>
+      <div class="fineprint">All figures refer to 2025 only. Savings model uses current TOU-D rates and average export credits; update assumptions for exact billing. Report refreshed February 10, 2026 for 5848 Lady Bells Dr, Orcutt, CA 93455.</div>
     </footer>
   </div>
+
+  <script>
+    const energyData = {
+      months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+      homeKwh: [151.094,802.12,1181.543,1244.782,1346.794,1626.279,1426.799,1444.192,1529.012,1551.86,1700.763,2059.217],
+      gridImportKwh: [0.0,462.085,724.843,283.821,369.47,590.04,385.406,358.937,684.006,644.552,1101.774,1490.566],
+      gridExportKwh: [0.001,0.127,28.438,261.076,438.415,329.448,309.02,216.691,58.221,38.243,5.548,4.335]
+    };
+
+    const ratePlan = {
+      summer: { peak: 0.53623, offpeak: 0.40127 },
+      winter: { peak: 0.44662, offpeak: 0.40801 },
+      summerMonths: [5,6,7,8] // Jun-Sep (0-based)
+    };
+
+    const fmtCurrency0 = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+    const fmtCurrency2 = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 });
+    const fmtNumber = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 });
+
+    const inputs = {
+      peakShare: document.getElementById("peakShare"),
+      peakShareLabel: document.getElementById("peakShareLabel"),
+      priceEscalation: document.getElementById("priceEscalation"),
+      systemCost: document.getElementById("systemCost"),
+      rebate: document.getElementById("rebate"),
+      financedAmount: document.getElementById("financedAmount"),
+      loanApr: document.getElementById("loanApr"),
+      loanTerm: document.getElementById("loanTerm"),
+      accBase: document.getElementById("accBase"),
+      accPlus: document.getElementById("accPlus")
+    };
+
+    const outputs = {
+      billNoSolar: document.getElementById("billNoSolar"),
+      billWithSolar: document.getElementById("billWithSolar"),
+      exportCredits: document.getElementById("exportCredits"),
+      netBill: document.getElementById("netBill"),
+      annualSavings: document.getElementById("annualSavings"),
+      loanPayment: document.getElementById("loanPayment"),
+      loanPaymentAnnual: document.getElementById("loanPaymentAnnual"),
+      paybackCash: document.getElementById("paybackCash"),
+      paybackLoan: document.getElementById("paybackLoan"),
+      netCost: document.getElementById("netCost"),
+      loanInterest: document.getElementById("loanInterest"),
+      shieldPct: document.getElementById("shieldPct"),
+      exposedPct: document.getElementById("exposedPct"),
+      rateShock: document.getElementById("rateShock")
+    };
+
+    function sum(list) {
+      return list.reduce((acc, val) => acc + val, 0);
+    }
+
+    function blendedRate(season, peakShare) {
+      const rates = ratePlan[season];
+      return peakShare * rates.peak + (1 - peakShare) * rates.offpeak;
+    }
+
+    function computeModel() {
+      const peakShare = (parseFloat(inputs.peakShare.value) || 0) / 100;
+      const escalation = (parseFloat(inputs.priceEscalation.value) || 0) / 100;
+      const accBase = parseFloat(inputs.accBase.value) || 0;
+      const accPlus = parseFloat(inputs.accPlus.value) || 0;
+      const exportRate = accBase + accPlus;
+
+      const systemCost = parseFloat(inputs.systemCost.value) || 0;
+      const rebate = parseFloat(inputs.rebate.value) || 0;
+      const netCost = Math.max(systemCost - rebate, 0);
+      const principal = parseFloat(inputs.financedAmount.value) || 0;
+      const apr = (parseFloat(inputs.loanApr.value) || 0) / 100;
+      const termYears = Math.max(parseInt(inputs.loanTerm.value, 10) || 0, 0);
+
+      inputs.peakShareLabel.textContent = `${Math.round(peakShare * 100)}%`;
+
+      let importNoSolar = 0;
+      let importWithSolar = 0;
+      let exportCredits = 0;
+
+      energyData.months.forEach((month, idx) => {
+        const season = ratePlan.summerMonths.includes(idx) ? "summer" : "winter";
+        const rate = blendedRate(season, peakShare);
+        importNoSolar += energyData.homeKwh[idx] * rate;
+        importWithSolar += energyData.gridImportKwh[idx] * rate;
+        exportCredits += energyData.gridExportKwh[idx] * exportRate;
+      });
+
+      const netBill = importWithSolar - exportCredits;
+      const savings = importNoSolar - netBill;
+
+      const gridImportTotal = sum(energyData.gridImportKwh);
+      const homeTotal = sum(energyData.homeKwh);
+      const exposedPct = homeTotal > 0 ? (gridImportTotal / homeTotal) * 100 : 0;
+      const shieldPct = 100 - exposedPct;
+      const rateShock = (importWithSolar * 0.01);
+
+      outputs.billNoSolar.textContent = fmtCurrency0.format(importNoSolar);
+      outputs.billWithSolar.textContent = fmtCurrency0.format(importWithSolar);
+      outputs.exportCredits.textContent = `-${fmtCurrency0.format(exportCredits)}`;
+      outputs.netBill.textContent = fmtCurrency0.format(netBill);
+      outputs.annualSavings.textContent = fmtCurrency0.format(savings);
+      outputs.shieldPct.textContent = `${fmtNumber.format(shieldPct)}%`;
+      outputs.exposedPct.textContent = `${fmtNumber.format(exposedPct)}%`;
+      outputs.rateShock.textContent = fmtCurrency0.format(rateShock);
+
+      const monthlyRate = apr / 12;
+      const totalPayments = termYears * 12;
+      let monthlyPayment = 0;
+      if (principal > 0 && monthlyRate > 0 && totalPayments > 0) {
+        monthlyPayment = principal * (monthlyRate / (1 - Math.pow(1 + monthlyRate, -totalPayments)));
+      }
+      const annualPayment = monthlyPayment * 12;
+      const totalInterest = totalPayments > 0 ? (monthlyPayment * totalPayments - principal) : 0;
+
+      outputs.loanPayment.textContent = fmtCurrency0.format(monthlyPayment);
+      outputs.loanPaymentAnnual.textContent = fmtCurrency0.format(annualPayment);
+      outputs.netCost.textContent = fmtCurrency0.format(netCost);
+      outputs.loanInterest.textContent = fmtCurrency0.format(totalInterest);
+
+      renderRoiChart(savings, escalation, netCost, monthlyPayment, termYears);
+    }
+
+    function renderRoiChart(baseSavings, escalation, netCost, monthlyPayment, termYears) {
+      const cashValues = [-netCost];
+      const loanValues = [0];
+      const horizon = 25;
+      const annualLoan = monthlyPayment * 12;
+
+      for (let year = 1; year <= horizon; year++) {
+        const yearSavings = baseSavings * Math.pow(1 + escalation, year - 1);
+        cashValues.push(cashValues[year - 1] + yearSavings);
+        const loanCost = year <= termYears ? annualLoan : 0;
+        loanValues.push(loanValues[year - 1] + (yearSavings - loanCost));
+      }
+
+      const minVal = Math.min(...cashValues, ...loanValues);
+      const maxVal = Math.max(...cashValues, ...loanValues);
+      const range = maxVal - minVal || 1;
+      const padding = 40;
+      const width = 720;
+      const height = 260;
+
+      const scaleX = (index) => padding + (index / horizon) * (width - padding * 2);
+      const scaleY = (value) => padding + ((maxVal - value) / range) * (height - padding * 2);
+
+      const cashPath = cashValues.map((val, idx) => `${idx === 0 ? "M" : "L"}${scaleX(idx)} ${scaleY(val)}`).join(" ");
+      const loanPath = loanValues.map((val, idx) => `${idx === 0 ? "M" : "L"}${scaleX(idx)} ${scaleY(val)}`).join(" ");
+
+      document.getElementById("roiCashPath").setAttribute("d", cashPath);
+      document.getElementById("roiLoanPath").setAttribute("d", loanPath);
+
+      const zeroY = scaleY(0);
+      const zeroLine = document.getElementById("roiZero");
+      zeroLine.setAttribute("y1", zeroY);
+      zeroLine.setAttribute("y2", zeroY);
+
+      const paybackCash = cashValues.findIndex((val, idx) => idx > 0 && val >= 0);
+      const paybackLoan = loanValues.findIndex((val, idx) => idx > 0 && val >= 0);
+
+      outputs.paybackCash.textContent = paybackCash > 0 ? `Year ${paybackCash}` : "Beyond 25 years";
+      outputs.paybackLoan.textContent = paybackLoan > 0 ? `Year ${paybackLoan}` : "Beyond 25 years";
+    }
+
+    document.querySelectorAll(".model-input").forEach((input) => {
+      input.addEventListener("input", computeModel);
+      input.addEventListener("change", computeModel);
+    });
+
+    const liveBtn = document.getElementById("liveBtn");
+    const liveStatus = document.getElementById("liveStatus");
+    if (liveBtn && liveStatus) {
+      liveBtn.addEventListener("click", async () => {
+        liveStatus.textContent = "Connecting...";
+        try {
+          const response = await fetch("/api/tesla-energy");
+          if (!response.ok) throw new Error("Endpoint not available");
+          const payload = await response.json();
+          if (!payload || !Array.isArray(payload.homeKwh)) throw new Error("Bad payload");
+          energyData.months = payload.months || energyData.months;
+          energyData.homeKwh = payload.homeKwh || energyData.homeKwh;
+          energyData.gridImportKwh = payload.gridImportKwh || energyData.gridImportKwh;
+          energyData.gridExportKwh = payload.gridExportKwh || energyData.gridExportKwh;
+          liveStatus.textContent = "Live data connected";
+          computeModel();
+        } catch (error) {
+          liveStatus.textContent = "Live endpoint not configured — using static data.";
+        }
+      });
+    }
+
+    computeModel();
+  </script>
 </body>
 </html>
