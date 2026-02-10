@@ -1,223 +1,221 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="2025 Tesla solar performance dashboard - generation, storage, efficiency, and annual savings.">
+    <meta name="theme-color" content="#0a0e27">
     <title>Tesla Solar Performance 2025</title>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="2025 solar performance summary — generation, storage, and savings for a Tesla + Powerwall system.">
-        <meta name="theme-color" content="#0a0e27">
-        <title>Tesla Solar Performance 2025</title>
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-        <style>
-            *{box-sizing:border-box;margin:0;padding:0}
-            :root{--accent:#ffb900;--accent-2:#0096ff;--bg-1:#0a0e27;--bg-2:#1a1f3a}
-            html,body{height:100%}
-            body{
-                font-family:'Space Mono',monospace;
-                background:linear-gradient(135deg,var(--bg-1) 0%,var(--bg-2) 50%,var(--bg-1) 100%);
-                min-height:100vh;display:flex;justify-content:center;align-items:center;padding:40px 20px;position:relative;overflow:hidden;color:#e6eef8
-            }
-            body::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,185,0,0.08) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(0,150,255,0.06) 0%,transparent 50%);pointer-events:none}
-            .skip-link{position:absolute;left:8px;top:8px;background:#000;color:#fff;padding:8px 12px;border-radius:4px;z-index:100;transform:translateY(-120%);transition:transform .2s}
-            .skip-link:focus{transform:none}
-            .poster{max-width:1000px;width:100%;background:rgba(15,20,40,0.95);border:3px solid var(--accent);box-shadow:0 0 60px rgba(255,185,0,0.28),inset 0 0 40px rgba(0,0,0,0.5);position:relative;overflow:hidden;animation:posterGlow 3s ease-in-out infinite}
-            @keyframes posterGlow{0%,100%{box-shadow:0 0 60px rgba(255,185,0,0.3),inset 0 0 40px rgba(0,0,0,0.5)}50%{box-shadow:0 0 80px rgba(255,185,0,0.5),inset 0 0 40px rgba(0,0,0,0.5)}}
-            .corner-accent{position:absolute;width:80px;height:80px;border:2px solid var(--accent)}
-            .corner-accent.tl{top:15px;left:15px;border-right:none;border-bottom:none}
-            .corner-accent.tr{top:15px;right:15px;border-left:none;border-bottom:none}
-            .corner-accent.bl{bottom:15px;left:15px;border-right:none;border-top:none}
-            .corner-accent.br{bottom:15px;right:15px;border-left:none;border-top:none}
-            .content{padding:60px 50px;position:relative;z-index:1}
-            header.header{text-align:center;margin-bottom:50px;animation:slideDown .8s ease-out}
-            @keyframes slideDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:none}}
-            .title{font-family:'Orbitron',sans-serif;font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,var(--accent) 0%,#ff6b00 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;letter-spacing:4px;margin-bottom:10px;text-shadow:0 0 30px rgba(255,185,0,0.45)}
-            .subtitle{font-size:1.1rem;color:var(--accent-2);font-weight:700;letter-spacing:2px;text-transform:uppercase}
-            .system-info{display:flex;justify-content:space-around;margin-bottom:50px;gap:20px;animation:fadeIn 1s ease-out .3s both}
-            @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-            .info-box{flex:1;background:linear-gradient(135deg,rgba(255,185,0,0.08) 0%,rgba(255,107,0,0.04) 100%);border:2px solid rgba(255,185,0,0.22);padding:20px;text-align:center;position:relative;overflow:hidden}
-            .info-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,185,0,0.06),transparent);animation:shimmer 3s linear infinite}
-            @keyframes shimmer{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}100%{transform:translateX(100%) translateY(100%) rotate(45deg)}}
-            .info-label{font-size:.85rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-            .info-value{font-size:1.8rem;color:#fff;font-weight:700}
-            .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-bottom:50px;animation:fadeIn 1s ease-out .6s both}
-            .stat-card{background:linear-gradient(135deg,rgba(0,150,255,0.12) 0%,rgba(0,100,200,0.04) 100%);border-left:4px solid var(--accent-2);padding:25px;position:relative;transition:all .3s ease}
-            .stat-card:hover{transform:translateX(10px);background:linear-gradient(135deg,rgba(0,150,255,0.2) 0%,rgba(0,100,200,0.08) 100%);box-shadow:-5px 0 20px rgba(0,150,255,0.2)}
-            .stat-number{font-size:3rem;font-weight:700;color:var(--accent-2);margin-bottom:5px;font-family:'Orbitron',sans-serif}
-            .stat-label{font-size:1rem;color:#a8b9cf;text-transform:uppercase;letter-spacing:1px}
-            .stat-detail{font-size:.85rem;color:#6b7d96;margin-top:8px}
-            .highlight-section{background:linear-gradient(135deg,rgba(255,185,0,0.12) 0%,rgba(255,107,0,0.06) 100%);border:2px solid var(--accent);padding:35px;margin-bottom:40px;position:relative;animation:fadeIn 1s ease-out .9s both}
-            .highlight-title{font-family:'Orbitron',sans-serif;font-size:1.5rem;color:var(--accent);margin-bottom:20px;text-transform:uppercase;letter-spacing:2px}
-            .highlight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-            .highlight-item{text-align:center}
-            .highlight-value{font-size:2.2rem;font-weight:700;color:#fff;margin-bottom:5px}
-            .highlight-label{font-size:.9rem;color:#a8b9cf;text-transform:uppercase}
-            .savings-banner{background:linear-gradient(135deg,#ff6b00 0%,var(--accent) 100%);padding:30px;text-align:center;margin-top:40px;position:relative;overflow:hidden;animation:fadeIn 1s ease-out 1.2s both}
-            .savings-banner::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,0.14),transparent);animation:shimmer 4s linear infinite}
-            .savings-amount{font-family:'Orbitron',sans-serif;font-size:4rem;font-weight:900;color:#fff;text-shadow:0 4px 10px rgba(0,0,0,0.3);margin-bottom:5px}
-            .savings-label{font-size:1.3rem;color:rgba(255,255,255,0.95);font-weight:700;text-transform:uppercase;letter-spacing:2px}
-            footer.footer{text-align:center;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,185,0,0.18);color:#98a8bf;font-size:.85rem;animation:fadeIn 1s ease-out 1.5s both}
-            @media (max-width:768px){.title{font-size:2.2rem}.stats-grid{grid-template-columns:1fr}.highlight-grid{grid-template-columns:1fr}.system-info{flex-direction:column}.savings-amount{font-size:2.8rem}}
-        </style>
-    </head>
-    <body>
-        <a class="skip-link" href="#main">Skip to content</a>
-        <div class="poster" role="region" aria-label="Solar performance poster">
-            <div class="corner-accent tl" aria-hidden="true"></div>
-            <div class="corner-accent tr" aria-hidden="true"></div>
-            <div class="corner-accent bl" aria-hidden="true"></div>
-            <div class="corner-accent br" aria-hidden="true"></div>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        :root{--accent:#ffbf00;--accent-2:#00aaff;--bg-1:#0a0e27;--bg-2:#1a1f3a;--chart-1:#ff6b00;--chart-2:#00aaff;--chart-3:#ffbf00}
+        html,body{height:100%}
+        body{
+            font-family:'Space Mono',monospace;
+            background:linear-gradient(135deg,var(--bg-1) 0%,var(--bg-2) 50%,var(--bg-1) 100%);
+            min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;position:relative;overflow-x:hidden;color:#e6eef8
+        }
+        body::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,185,0,0.08) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(0,150,255,0.06) 0%,transparent 50%);pointer-events:none}
+        .skip-link{position:absolute;left:-999px}
+        .skip-link:focus{position:static}
+        .dashboard{max-width:1200px;width:100%;background:rgba(15,20,40,0.95);border:3px solid var(--accent);box-shadow:0 0 60px rgba(255,185,0,0.28),inset 0 0 40px rgba(0,0,0,0.5);position:relative;overflow:hidden;animation:glow 3s ease-in-out infinite}
+        @keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,185,0,0.3),inset 0 0 40px rgba(0,0,0,0.5)}50%{box-shadow:0 0 80px rgba(255,185,0,0.5),inset 0 0 40px rgba(0,0,0,0.5)}}
+        .corner{position:absolute;width:80px;height:80px;border:2px solid var(--accent)}
+        .corner.tl{top:15px;left:15px;border-right:none;border-bottom:none}
+        .corner.tr{top:15px;right:15px;border-left:none;border-bottom:none}
+        .corner.bl{bottom:15px;left:15px;border-right:none;border-top:none}
+        .corner.br{bottom:15px;right:15px;border-left:none;border-top:none}
+        .wrapper{padding:40px 25px;position:relative;z-index:1}
+        h1{font-family:'Orbitron',sans-serif;font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--accent) 0%,#ff6b00 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;text-align:center;animation:slideIn .8s ease-out}
+        h2{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin:25px 0 15px}
+        .subtitle{text-align:center;font-size:1rem;color:var(--accent-2);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:30px;animation:slideIn .8s ease-out .2s backwards}
+        @keyframes slideIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+        .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:20px 0}
+        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:20px 0}
+        .card{background:linear-gradient(135deg,rgba(0,150,255,0.1) 0%,rgba(0,100,200,0.05) 100%);border-left:4px solid var(--accent-2);padding:20px;position:relative;transition:all .3s ease}
+        .card:hover{transform:translateX(8px);background:linear-gradient(135deg,rgba(0,150,255,0.18) 0%,rgba(0,100,200,0.08) 100%)}
+        .card-title{font-size:.9rem;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+        .card-value{font-size:2.5rem;font-weight:700;color:var(--accent-2);font-family:'Orbitron',sans-serif}
+        .card-detail{font-size:.8rem;color:#a8b9cf;margin-top:8px}
+        .segment{background:rgba(255,185,0,0.08);border:2px solid rgba(255,185,0,0.2);padding:20px;margin:15px 0;position:relative;overflow:hidden}
+        .segment.highlight{background:linear-gradient(135deg,rgba(255,185,0,0.12) 0%,rgba(255,107,0,0.06) 100%);border:2px solid var(--accent)}
+        svg{max-width:100%;height:auto;display:block}
+        .chart-container{background:rgba(0,0,0,0.3);padding:20px;border-radius:4px;margin:15px 0}
+        .chart-legend{display:flex;flex-wrap:wrap;gap:15px;margin-top:15px;font-size:.8rem}
+        .legend-item{display:flex;align-items:center;gap:8px}
+        .legend-box{width:16px;height:16px;border-radius:2px}
+        .banner{background:linear-gradient(135deg,#ff6b00 0%,var(--accent) 100%);padding:25px;text-align:center;margin:25px 0;position:relative;overflow:hidden;border-radius:4px}
+        .banner::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.1) 50%,transparent 70%);animation:shimmer 3s infinite}
+        .banner-amount{font-family:'Orbitron',sans-serif;font-size:3rem;font-weight:900;color:#fff;text-shadow:0 4px 10px rgba(0,0,0,0.3);position:relative;z-index:1}
+        .banner-label{font-size:1.1rem;color:rgba(255,255,255,0.95);font-weight:700;text-transform:uppercase;letter-spacing:1px;position:relative;z-index:1}
+        @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+        footer{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,185,0,0.18);color:#98a8bf;font-size:.8rem;line-height:1.6;position:relative;z-index:1}
+        .info-boxes{display:flex;gap:15px;flex-wrap:wrap;justify-content:space-around;margin:20px 0}
+        .info-box{flex:1;min-width:120px;background:linear-gradient(135deg,rgba(255,185,0,0.08) 0%,rgba(255,107,0,0.04) 100%);border:2px solid rgba(255,185,0,0.22);padding:12px;text-align:center;border-radius:3px}
+        .info-label{font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+        .info-value{font-size:1.4rem;color:#fff;font-weight:700}
+        @media (max-width:640px){
+            body{padding:12px}
+            .corner{width:60px;height:60px}
+            .wrapper{padding:25px 15px}
+            h1{font-size:1.8rem;letter-spacing:1px}
+            .subtitle{font-size:.9rem}
+            .grid-2,.grid-3{grid-template-columns:1fr;gap:15px}
+            .card{padding:15px;font-size:.9rem}
+            .card-value{font-size:2rem}
+            .chart-container{padding:15px}
+            .banner{padding:20px;margin:20px 0}
+            .banner-amount{font-size:2.2rem}
+            .banner-label{font-size:.95rem}
+            .info-box{font-size:.75rem;padding:10px}
+            .info-value{font-size:1.2rem}
+            h2{font-size:1.1rem;margin:20px 0 12px}
+        }
+        @media (min-width:641px) and (max-width:1023px){
+            .wrapper{padding:35px 20px}
+            h1{font-size:2.2rem}
+            .grid-3{grid-template-columns:repeat(2,1fr)}
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="dashboard">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        <div class="wrapper">
+            <main id="main">
+                <h1>Tesla Solar</h1>
+                <p class="subtitle">2025 Performance Dashboard</p>
 
-            <main id="main" class="content" role="main">
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="utf-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <meta name="description" content="2025 solar performance summary — generation, storage, and savings for a Tesla + Powerwall system.">
-                    <meta name="theme-color" content="#0a0e27">
-                    <title>Tesla Solar Performance 2025</title>
-                    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-                    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-                    <style>
-                        *{box-sizing:border-box;margin:0;padding:0}
-                        :root{--accent:#ffbf00;--accent-2:#00aaff;--bg-1:#0a0e27;--bg-2:#1a1f3a}
-                        html,body{height:100%}
-                        body{
-                            font-family:'Space Mono',monospace;
-                            background:linear-gradient(135deg,var(--bg-1) 0%,var(--bg-2) 50%,var(--bg-1) 100%);
-                            min-height:100vh;display:flex;justify-content:center;align-items:center;padding:40px 20px;position:relative;overflow:hidden;color:#e6eef8
-                        }
-                        body::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,185,0,0.08) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(0,150,255,0.06) 0%,transparent 50%);pointer-events:none}
-                        .skip-link{position:absolute;left:8px;top:8px;background:#000;color:#fff;padding:8px 12px;border-radius:4px;z-index:100;transform:translateY(-120%);transition:transform .2s}
-                        .skip-link:focus{transform:none}
-                        .poster{max-width:1000px;width:100%;background:rgba(15,20,40,0.95);border:3px solid var(--accent);box-shadow:0 0 60px rgba(255,185,0,0.28),inset 0 0 40px rgba(0,0,0,0.5);position:relative;overflow:hidden;animation:posterGlow 3s ease-in-out infinite}
-                        @keyframes posterGlow{0%,100%{box-shadow:0 0 60px rgba(255,185,0,0.3),inset 0 0 40px rgba(0,0,0,0.5)}50%{box-shadow:0 0 80px rgba(255,185,0,0.5),inset 0 0 40px rgba(0,0,0,0.5)}}
-                        .corner-accent{position:absolute;width:80px;height:80px;border:2px solid var(--accent)}
-                        .corner-accent.tl{top:15px;left:15px;border-right:none;border-bottom:none}
-                        .corner-accent.tr{top:15px;right:15px;border-left:none;border-bottom:none}
-                        .corner-accent.bl{bottom:15px;left:15px;border-right:none;border-top:none}
-                        .corner-accent.br{bottom:15px;right:15px;border-left:none;border-top:none}
-                        .content{padding:60px 50px;position:relative;z-index:1}
-                        header.header{text-align:center;margin-bottom:50px;animation:slideDown .8s ease-out}
-                        @keyframes slideDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:none}}
-                        .title{font-family:'Orbitron',sans-serif;font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,var(--accent) 0%,#ff6b00 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;letter-spacing:4px;margin-bottom:10px;text-shadow:0 0 30px rgba(255,185,0,0.45)}
-                        .subtitle{font-size:1.1rem;color:var(--accent-2);font-weight:700;letter-spacing:2px;text-transform:uppercase}
-                        .system-info{display:flex;justify-content:space-around;margin-bottom:50px;gap:20px;animation:fadeIn 1s ease-out .3s both}
-                        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-                        .info-box{flex:1;background:linear-gradient(135deg,rgba(255,185,0,0.08) 0%,rgba(255,107,0,0.04) 100%);border:2px solid rgba(255,185,0,0.22);padding:20px;text-align:center;position:relative;overflow:hidden}
-                        .info-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,185,0,0.06),transparent);animation:shimmer 3s linear infinite}
-                        @keyframes shimmer{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}100%{transform:translateX(100%) translateY(100%) rotate(45deg)}}
-                        .info-label{font-size:.85rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-                        .info-value{font-size:1.8rem;color:#fff;font-weight:700}
-                        .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-bottom:50px;animation:fadeIn 1s ease-out .6s both}
-                        .stat-card{background:linear-gradient(135deg,rgba(0,150,255,0.12) 0%,rgba(0,100,200,0.04) 100%);border-left:4px solid var(--accent-2);padding:25px;position:relative;transition:all .3s ease}
-                        .stat-card:hover{transform:translateX(10px);background:linear-gradient(135deg,rgba(0,150,255,0.2) 0%,rgba(0,100,200,0.08) 100%);box-shadow:-5px 0 20px rgba(0,150,255,0.2)}
-                        .stat-number{font-size:3rem;font-weight:700;color:var(--accent-2);margin-bottom:5px;font-family:'Orbitron',sans-serif}
-                        .stat-label{font-size:1rem;color:#a8b9cf;text-transform:uppercase;letter-spacing:1px}
-                        .stat-detail{font-size:.85rem;color:#6b7d96;margin-top:8px}
-                        .highlight-section{background:linear-gradient(135deg,rgba(255,185,0,0.12) 0%,rgba(255,107,0,0.06) 100%);border:2px solid var(--accent);padding:35px;margin-bottom:40px;position:relative;animation:fadeIn 1s ease-out .9s both}
-                        .highlight-title{font-family:'Orbitron',sans-serif;font-size:1.5rem;color:var(--accent);margin-bottom:20px;text-transform:uppercase;letter-spacing:2px}
-                        .highlight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-                        .highlight-item{text-align:center}
-                        .highlight-value{font-size:2.2rem;font-weight:700;color:#fff;margin-bottom:5px}
-                        .highlight-label{font-size:.9rem;color:#a8b9cf;text-transform:uppercase}
-                        .savings-banner{background:linear-gradient(135deg,#ff6b00 0%,var(--accent) 100%);padding:30px;text-align:center;margin-top:40px;position:relative;overflow:hidden;animation:fadeIn 1s ease-out 1.2s both}
-                        .savings-banner::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,0.14),transparent);animation:shimmer 4s linear infinite}
-                        .savings-amount{font-family:'Orbitron',sans-serif;font-size:4rem;font-weight:900;color:#fff;text-shadow:0 4px 10px rgba(0,0,0,0.3);margin-bottom:5px}
-                        .savings-label{font-size:1.3rem;color:rgba(255,255,255,0.95);font-weight:700;text-transform:uppercase;letter-spacing:2px}
-                        footer.footer{text-align:center;margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,185,0,0.18);color:#98a8bf;font-size:.85rem;animation:fadeIn 1s ease-out 1.5s both}
-                        @media (max-width:768px){.title{font-size:2.2rem}.stats-grid{grid-template-columns:1fr}.highlight-grid{grid-template-columns:1fr}.system-info{flex-direction:column}.savings-amount{font-size:2.8rem}}
-                    </style>
-                </head>
-                <body>
-                    <a class="skip-link" href="#main">Skip to content</a>
-                    <div class="poster" role="region" aria-label="Solar performance poster">
-                        <div class="corner-accent tl" aria-hidden="true"></div>
-                        <div class="corner-accent tr" aria-hidden="true"></div>
-                        <div class="corner-accent bl" aria-hidden="true"></div>
-                        <div class="corner-accent br" aria-hidden="true"></div>
-
-                        <main id="main" class="content" role="main">
-                            <header class="header">
-                                <h1 class="title">Tesla Solar — Home Production</h1>
-                                <p class="subtitle">2025 Performance Report</p>
-                            </header>
-
-                            <section class="system-info" aria-label="System overview">
-                                <div class="info-box" role="group" aria-labelledby="label-array">
-                                    <div id="label-array" class="info-label">Solar Array</div>
-                                    <div class="info-value">8.2 kW</div>
-                                </div>
-                                <div class="info-box" role="group" aria-labelledby="label-storage">
-                                    <div id="label-storage" class="info-label">Battery Storage</div>
-                                    <div class="info-value">27 kWh</div>
-                                </div>
-                                <div class="info-box" role="group" aria-labelledby="label-type">
-                                    <div id="label-type" class="info-label">System Type</div>
-                                    <div class="info-value">NEM 3.0</div>
-                                </div>
-                            </section>
-
-                            <section class="stats-grid" aria-label="Annual statistics">
-                                <div class="stat-card" role="article">
-                                    <div class="stat-number">10,751</div>
-                                    <div class="stat-label">kWh Generated</div>
-                                    <div class="stat-detail">29 kWh average per day</div>
-                                </div>
-
-                                <div class="stat-card" role="article">
-                                    <div class="stat-number">56%</div>
-                                    <div class="stat-label">Energy Independence</div>
-                                    <div class="stat-detail">Solar + Battery Coverage</div>
-                                </div>
-
-                                <div class="stat-card" role="article">
-                                    <div class="stat-number">85%</div>
-                                    <div class="stat-label">Self-Consumption</div>
-                                    <div class="stat-detail">Optimized for NEM 3.0</div>
-                                </div>
-
-                                <div class="stat-card" role="article">
-                                    <div class="stat-number">4,013</div>
-                                    <div class="stat-label">kWh Time-Shifted</div>
-                                    <div class="stat-detail">Powerwall to home annually</div>
-                                </div>
-                            </section>
-
-                            <section class="highlight-section" aria-labelledby="flow-title">
-                                <h2 id="flow-title" class="highlight-title">Energy Flow Breakdown</h2>
-                                <div class="highlight-grid">
-                                    <div class="highlight-item">
-                                        <div class="highlight-value">47%</div>
-                                        <div class="highlight-label">Direct to Home</div>
-                                    </div>
-                                    <div class="highlight-item">
-                                        <div class="highlight-value">39%</div>
-                                        <div class="highlight-label">Stored in Battery</div>
-                                    </div>
-                                    <div class="highlight-item">
-                                        <div class="highlight-value">15%</div>
-                                        <div class="highlight-label">Exported to Grid</div>
-                                    </div>
-                                </div>
-                            </section>
-
-                            <section class="savings-banner" aria-label="Estimated annual savings">
-                                <div class="savings-amount">$2,275</div>
-                                <div class="savings-label">Estimated Annual Savings — $190 / month</div>
-                            </section>
-
-                            <footer class="footer" role="contentinfo">
-                                Rate plan: PG&E TOU-D-CARE • 2× Powerwall 3 • System efficiency: 97%
-                            </footer>
-                        </main>
+                <section class="info-boxes">
+                    <div class="info-box">
+                        <div class="info-label">System Size</div>
+                        <div class="info-value">8.2 kW</div>
                     </div>
-                </body>
-                </html>
+                    <div class="info-box">
+                        <div class="info-label">Battery</div>
+                        <div class="info-value">27 kWh</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Efficiency</div>
+                        <div class="info-value">97%</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Plan</div>
+                        <div class="info-value">NEM 3.0</div>
+                    </div>
+                </section>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Annual Generation</div>
+                        <div class="card-value">10,751</div>
+                        <div class="card-detail">kWh - 29 kWh/day avg</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Energy Independence</div>
+                        <div class="card-value">56%</div>
+                        <div class="card-detail">Solar + Battery Coverage</div>
+                    </div>
+                </div>
+
+                <div class="segment highlight">
+                    <h2>Energy Flow Breakdown</h2>
+                    <div class="chart-container">
+                        <svg viewBox="0 0 300 200" width="300" height="200">
+                            <circle cx="80" cy="100" r="70" fill="none" stroke="#ff6b00" stroke-width="15" stroke-dasharray="172.87 1320.25"/>
+                            <circle cx="80" cy="100" r="70" fill="none" stroke="#00aaff" stroke-width="15" stroke-dasharray="152.00 1320.25" stroke-dashoffset="-172.87"/>
+                            <circle cx="80" cy="100" r="70" fill="none" stroke="#ffbf00" stroke-width="15" stroke-dasharray="81.13 1320.25" stroke-dashoffset="-324.87"/>
+                            <text x="80" y="95" text-anchor="middle" font-size="20" fill="#fff" font-weight="bold">47%</text>
+                            <text x="80" y="112" text-anchor="middle" font-size="11" fill="#a8b9cf">Direct</text>
+                            <text x="200" y="85" font-size="12" fill="#ff6b00" font-weight="bold">47% Direct to Home</text>
+                            <text x="200" y="105" font-size="12" fill="#00aaff" font-weight="bold">39% Stored in Battery</text>
+                            <text x="200" y="125" font-size="12" fill="#ffbf00" font-weight="bold">15% Exported to Grid</text>
+                        </svg>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-box" style="background:#ff6b00"></div>
+                            <span>47% Direct to Home</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box" style="background:#00aaff"></div>
+                            <span>39% Stored in Battery</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box" style="background:#ffbf00"></div>
+                            <span>15% Exported to Grid</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="segment highlight">
+                    <h2>Monthly Generation Profile</h2>
+                    <div class="chart-container">
+                        <svg viewBox="0 0 320 180" width="320" height="180" style="overflow:visible">
+                            <defs>
+                                <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ffbf00;stop-opacity:0.6"/>
+                                    <stop offset="100%" style="stop-color:#ffbf00;stop-opacity:0.1"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="30" y="140" width="18" height="40" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <rect x="55" y="110" width="18" height="70" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <rect x="80" y="95" width="18" height="85" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <rect x="105" y="100" width="18" height="80" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <rect x="130" y="120" width="18" height="60" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <rect x="155" y="135" width="18" height="45" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <rect x="180" y="130" width="18" height="50" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <rect x="205" y="85" width="18" height="95" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <rect x="230" y="92" width="18" height="88" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <rect x="255" y="110" width="18" height="70" fill="url(#grad)" stroke="#ffbf00" stroke-width="1"/>
+                            <line x1="25" y1="180" x2="310" y2="180" stroke="#6b7d96" stroke-width="1"/>
+                            <text x="39" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">J</text>
+                            <text x="64" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">F</text>
+                            <text x="89" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">M</text>
+                            <text x="114" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">A</text>
+                            <text x="139" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">M</text>
+                            <text x="164" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">J</text>
+                            <text x="189" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">J</text>
+                            <text x="214" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">A</text>
+                            <text x="239" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">S</text>
+                            <text x="264" y="165" font-size="10" fill="#a8b9cf" text-anchor="middle">O</text>
+                            <text x="15" y="15" font-size="11" fill="#a8b9cf">kWh</text>
+                            <text x="15" y="50" font-size="9" fill="#6b7d96">900</text>
+                            <text x="15" y="100" font-size="9" fill="#6b7d96">450</text>
+                        </svg>
+                    </div>
+                    <p style="font-size:.8rem;color:#a8b9cf;margin-top:12px">Summer months (Jun-Aug) show peak generation with extended daylight hours.</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Self-Consumption Rate</div>
+                        <div class="card-value">85%</div>
+                        <div class="card-detail">Optimized for NEM 3.0</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Time-Shifted Energy</div>
+                        <div class="card-value">4,013</div>
+                        <div class="card-detail">kWh stored and used</div>
+                    </div>
+                </div>
+
+                <div class="banner">
+                    <div class="banner-amount">$2,275</div>
+                    <div class="banner-label">Estimated Annual Savings - $190 / month</div>
+                </div>
+
+                <footer>
+                    <strong>System Details:</strong> 8.2 kW solar array | 2x Powerwall 3 (27 kWh) | Rate Plan: PG&E TOU-D-CARE | System Efficiency: 97%<br>
+                    Last updated: 2025 | Data visualization for informational purposes
+                </footer>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
