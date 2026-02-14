@@ -3,872 +3,488 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Solar + Powerwall performance dossier for 5848 Lady Bells Dr, Orcutt, CA 93455. 2025 energy flows, generation, storage, and grid interaction.">
-  <meta name="theme-color" content="#0e1b2e">
-  <title>5848 Lady Bells Dr | Solar + Powerwall 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Fall 2026 study abroad plan: Buenos Aires, Patagonia, Santiago, and a Rio extension. Mobile-first itinerary, budget, and prep checklist.">
+  <meta name="theme-color" content="#f3ede3">
+  <title>Fall 2026 Study Abroad Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --ink:#0e1b2e;
-      --night:#0b1424;
-      --cream:#f8f1e3;
-      --paper:#fffaf0;
-      --brick:#b7422a;
-      --gold:#d8a654;
-      --teal:#2d6e6a;
-      --sky:#87a7c0;
-      --shadow:0 18px 40px rgba(14,27,46,0.12);
+      --sand:#f3ede3;
+      --paper:#fff9f0;
+      --ink:#1f272b;
+      --coral:#e0624f;
+      --sun:#f1b24a;
+      --teal:#2a7b76;
+      --sky:#7da6c6;
+      --olive:#4e6f54;
+      --shadow:0 18px 50px rgba(31,39,43,0.12);
+      --radius:20px;
     }
     html,body{height:100%}
     body{
-      font-family:"IBM Plex Sans",sans-serif;
-      background:
-        radial-gradient(1200px 1200px at 10% -10%, rgba(135,167,192,0.2), transparent 60%),
-        radial-gradient(900px 900px at 110% 10%, rgba(216,166,84,0.15), transparent 55%),
-        repeating-linear-gradient(135deg, rgba(14,27,46,0.04) 0 1px, transparent 1px 10px),
-        var(--cream);
+      font-family:"Space Grotesk", sans-serif;
       color:var(--ink);
+      background:
+        radial-gradient(900px 900px at 8% -20%, rgba(125,166,198,0.3), transparent 60%),
+        radial-gradient(700px 700px at 95% 5%, rgba(241,178,74,0.28), transparent 60%),
+        radial-gradient(800px 800px at 30% 110%, rgba(224,98,79,0.2), transparent 60%),
+        repeating-linear-gradient(135deg, rgba(31,39,43,0.04) 0 1px, transparent 1px 10px),
+        var(--sand);
       line-height:1.6;
-      padding:32px 18px 60px;
+      padding:24px 16px 80px;
     }
-    .page{max-width:1180px;margin:0 auto}
-    .ribbon{
-      background:linear-gradient(90deg, var(--ink), var(--brick), var(--gold));
-      height:8px;
-      border-radius:999px;
-      margin-bottom:26px;
-      box-shadow:var(--shadow);
-    }
+    .page{max-width:1120px;margin:0 auto;display:grid;gap:28px}
     .hero{
-      display:grid;
-      grid-template-columns:1.2fr 0.8fr;
-      gap:28px;
-      align-items:stretch;
       background:var(--paper);
-      border:2px solid var(--ink);
-      box-shadow:var(--shadow);
+      border-radius:var(--radius);
       padding:28px;
+      box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
     }
     .hero::after{
       content:"";
       position:absolute;
-      top:-40px;right:-80px;
       width:240px;height:240px;
-      background:radial-gradient(circle, rgba(216,166,84,0.25), transparent 70%);
       border-radius:50%;
-      pointer-events:none;
+      background:radial-gradient(circle at 30% 30%, rgba(241,178,74,0.4), rgba(241,178,74,0));
+      top:-80px;right:-80px;
     }
-    .kicker{
+    .eyebrow{
       text-transform:uppercase;
-      letter-spacing:0.2em;
-      font-size:0.72rem;
-      color:var(--brick);
+      letter-spacing:0.3em;
+      font-size:0.68rem;
+      color:var(--teal);
       font-weight:700;
     }
     h1{
-      font-family:"Bebas Neue", sans-serif;
-      font-size:3.6rem;
-      letter-spacing:0.08em;
-      margin-top:10px;
-      color:var(--ink);
+      font-family:"Fraunces", serif;
+      font-size:clamp(2.4rem, 4vw, 3.6rem);
+      margin-top:8px;
     }
-    .hero-sub{
-      font-size:1.1rem;
-      color:#2a3c57;
-      margin:10px 0 18px;
-      max-width:520px;
-    }
-    .badge-row{display:flex;flex-wrap:wrap;gap:10px}
-    .badge{
-      background:var(--ink);
-      color:var(--paper);
+    .hero p{margin-top:12px;max-width:620px;color:#334046}
+    .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .chip{
       padding:8px 12px;
       border-radius:999px;
-      font-size:0.8rem;
-      letter-spacing:0.08em;
+      font-size:0.78rem;
       text-transform:uppercase;
+      letter-spacing:0.12em;
+      background:var(--ink);
+      color:var(--paper);
       font-weight:600;
     }
-    .badge.alt{background:var(--brick)}
-    .badge.gold{background:var(--gold);color:#2c200e}
-    .hero-card{
+    .chip.alt{background:var(--coral)}
+    .chip.sun{background:var(--sun);color:#2b1b0c}
+    .route{
+      margin-top:20px;
+      padding:16px;
       border:2px solid var(--ink);
-      background:#fef6e4;
-      padding:20px;
-      position:relative;
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
+      border-radius:16px;
+      background:linear-gradient(120deg, rgba(122,169,189,0.22), rgba(255,255,255,0));
+      font-weight:600;
     }
-    .seal{
-      width:110px;height:110px;
-      border-radius:50%;
-      border:3px solid var(--ink);
+    .route span{color:var(--coral)}
+    .grid{
       display:grid;
-      place-items:center;
-      text-align:center;
-      font-size:0.7rem;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:0.1em;
-      background:radial-gradient(circle at 30% 30%, #fff 0, #fbe6b1 50%, #f0cf86 100%);
-      margin-bottom:16px;
-    }
-    .hero-card h2{
-      font-family:"Bebas Neue", sans-serif;
-      font-size:1.8rem;
-      letter-spacing:0.1em;
-      margin-bottom:10px;
-    }
-    .hero-card ul{list-style:none;display:grid;gap:8px}
-    .hero-card li{font-weight:600}
-    .hero-card span{color:#3a4b63;font-weight:500}
-
-    .section{
-      margin-top:34px;
-      background:var(--paper);
-      border:2px solid var(--ink);
-      box-shadow:var(--shadow);
-      padding:26px;
-    }
-    .section-title{
-      font-family:"Bebas Neue", sans-serif;
-      font-size:2rem;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      margin-bottom:18px;
-    }
-
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
       gap:16px;
     }
-    .stat{
-      background:#fdf3dc;
-      border:1.5px solid var(--ink);
-      padding:18px;
+    .card{
+      background:var(--paper);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:var(--shadow);
     }
-    .stat .label{
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-      font-size:0.7rem;
-      color:#4b5e76;
-      font-weight:600;
+    .section-title{
+      font-family:"Fraunces", serif;
+      font-size:clamp(1.6rem, 2.5vw, 2.2rem);
+      margin-bottom:12px;
     }
-    .stat .value{
-      font-family:"Bebas Neue", sans-serif;
-      font-size:2.4rem;
-      margin-top:6px;
-    }
-    .stat .detail{font-size:0.9rem;color:#4b5e76}
-
-    .powerwall{
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:20px;
-      align-items:stretch;
-    }
-    .powerwall .highlight{
-      background:linear-gradient(135deg, #0e1b2e 0%, #1d2f4f 50%, #2d6e6a 100%);
-      color:white;
-      padding:24px;
-      border-radius:8px;
-      border:2px solid #0b1424;
+    .stats{
       display:grid;
       gap:12px;
     }
-    .highlight .big{
-      font-family:"Bebas Neue", sans-serif;
-      font-size:2.8rem;
-      letter-spacing:0.08em;
-    }
-    .highlight .sub{font-size:0.95rem;opacity:0.85}
-    .powerwall-grid{display:grid;gap:12px}
-    .powerwall-card{
-      border:1.5px solid var(--ink);
+    .stat{
+      border:1.5px solid rgba(31,39,43,0.2);
+      border-radius:16px;
       padding:14px;
-      background:#f9f2e0;
+      background:#fff6e8;
     }
-    .powerwall-card strong{display:block;font-size:1.1rem}
-
-    .flow-bars{display:grid;gap:18px}
-    .bar{
-      background:#e9e1cf;
-      border:1.5px solid var(--ink);
-      height:34px;
-      display:flex;
-      overflow:hidden;
-    }
-    .bar span{display:block;height:100%}
-    .bar .solar{background:var(--gold)}
-    .bar .powerwall{background:var(--teal)}
-    .bar .grid{background:var(--brick)}
-    .bar-labels{display:flex;justify-content:space-between;font-size:0.85rem;color:#3a4b63;margin-top:6px}
-
-    .monthly-chart{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:10px;
-      align-items:end;
-      height:240px;
-      margin-top:16px;
-      padding:14px 8px 0;
-      border:1.5px solid var(--ink);
-      background:#fdf6e6;
-    }
-    .month{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:6px;
-    }
-    .bar-stack{
-      width:100%;
-      height:160px;
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
-    }
-    .bar-fill{
-      width:100%;
-      max-width:32px;
-      background:linear-gradient(180deg, #f1c36b 0%, #b7422a 100%);
-      border:1px solid var(--ink);
-      height:var(--height);
-      box-shadow:0 6px 10px rgba(14,27,46,0.18);
-    }
-    .month label{
-      font-size:0.72rem;
+    .stat .label{
       text-transform:uppercase;
-      letter-spacing:0.1em;
-      color:#41556e;
+      letter-spacing:0.16em;
+      font-size:0.68rem;
+      color:#5b6a71;
+      font-weight:600;
     }
-    .month small{font-size:0.7rem;color:#60738c}
-
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .panel{
-      border:1.5px solid var(--ink);
-      padding:18px;
-      background:#fef8ea;
-    }
-    .panel h3{
-      font-family:"Bebas Neue", sans-serif;
+    .stat .value{
       font-size:1.4rem;
-      letter-spacing:0.1em;
-      margin-bottom:10px;
+      font-weight:700;
+      margin-top:6px;
     }
-    .panel ul{list-style:none;display:grid;gap:8px;font-size:0.95rem}
-    .panel strong{color:#2b3d57}
-    .model-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:16px;margin-top:18px}
-    .rate-table{margin-top:12px;border:1px solid var(--ink);background:#fff6df}
-    .rate-row{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:10px;padding:10px 12px;border-bottom:1px solid rgba(14,27,46,0.12);font-size:0.9rem}
-    .rate-row:last-child{border-bottom:none}
-    .rate-row span{font-weight:600;color:#233349}
-    .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:12px}
-    .control{display:flex;flex-direction:column;gap:6px}
-    .control label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:#41556e;font-weight:600}
-    .control input,.control select{padding:10px 12px;border:1.5px solid var(--ink);background:#fff; font-family:"IBM Plex Sans",sans-serif}
-    .control input[type="range"]{padding:0;height:24px}
-    .control-note{font-size:0.85rem;color:#41556e}
-    .stat-row{display:grid;gap:8px;margin-top:12px}
-    .stat-row div{display:flex;justify-content:space-between;font-size:0.95rem}
-    .big-figure{font-family:"Bebas Neue", sans-serif;font-size:2.2rem;letter-spacing:0.08em;margin-top:12px}
-    .price-shield{margin-top:16px}
-    .roi-block{margin-top:18px;border:1.5px solid var(--ink);padding:18px;background:#f9f2e0}
-    .roi-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:10px 0 12px;font-size:0.95rem}
-    .roi-chart{width:100%;height:auto;border:1px solid rgba(14,27,46,0.18);background:#fffaf0}
-    .roi-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:0.85rem;color:#3a4b63}
-    .roi-key{display:flex;align-items:center;gap:8px}
-    .roi-swatch{width:26px;height:4px;background:var(--brick)}
-    .roi-swatch.loan{background:var(--teal)}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:2px solid var(--ink);background:var(--ink);color:#fff;text-transform:uppercase;letter-spacing:0.1em;font-size:0.75rem;font-weight:700;cursor:pointer}
-    .btn.secondary{background:transparent;color:var(--ink)}
-    .status{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1.5px solid var(--ink);background:#fff;font-weight:600;margin:8px 0 12px}
-    .code{background:#0e1b2e;color:#fef6e4;padding:12px;border-radius:6px;font-size:0.78rem;overflow:auto;white-space:pre-wrap}
-
-    footer{
-      margin-top:34px;
-      border-top:2px solid var(--ink);
-      padding-top:18px;
+    .stat .note{color:#5b6a71;font-size:0.85rem}
+    .timeline{
+      display:grid;
+      gap:16px;
+    }
+    .phase{
+      border-left:4px solid var(--coral);
+      padding-left:16px;
+    }
+    .phase h3{font-size:1.05rem;margin-bottom:6px}
+    .phase ul{list-style:none;display:grid;gap:6px;font-size:0.95rem;color:#3d4a50}
+    .itinerary{
+      display:grid;
+      gap:14px;
+    }
+    .day{
+      padding:14px;
+      border-radius:14px;
+      border:1.5px solid rgba(31,39,43,0.18);
+      background:#fffef9;
+    }
+    .day strong{display:block;font-size:0.95rem;margin-bottom:4px}
+    .budget-grid{
+      display:grid;
+      gap:16px;
+    }
+    .budget-card{
+      border-radius:18px;
+      padding:18px;
+      border:2px solid rgba(31,39,43,0.15);
+      background:#fff9f2;
+    }
+    .budget-card h4{font-size:1rem;margin-bottom:8px}
+    .budget-row{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      font-size:0.95rem;
+      padding:6px 0;
+      border-bottom:1px dashed rgba(31,39,43,0.15);
+    }
+    .budget-row:last-child{border-bottom:none}
+    .budget-tag{
+      display:inline-block;
+      margin-top:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--teal);
+      color:white;
+      font-size:0.75rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+    }
+    .compare{
+      display:grid;
+      gap:12px;
+      margin-top:12px;
+      font-size:0.92rem;
+      color:#3d4a50;
+    }
+    .compare strong{color:var(--ink)}
+    .checklist{
+      display:grid;
+      gap:10px;
+      font-size:0.95rem;
+      color:#3d4a50;
+    }
+    .checklist li{
+      list-style:none;
+      padding-left:22px;
+      position:relative;
+    }
+    .checklist li::before{
+      content:"";
+      width:10px;height:10px;
+      border-radius:50%;
+      background:var(--sun);
+      position:absolute;
+      left:0;top:7px;
+    }
+    .split{
+      display:grid;
+      gap:16px;
+    }
+    .footnote{
       font-size:0.85rem;
-      color:#3a4b63;
+      color:#56656b;
+      margin-top:10px;
     }
-    .fineprint{margin-top:8px;font-size:0.78rem;color:#5d6f86}
-
-    .reveal{animation:rise 0.7s ease both;animation-delay:var(--delay,0s)}
-    @keyframes rise{
-      from{opacity:0;transform:translateY(12px)}
-      to{opacity:1;transform:translateY(0)}
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity 0.7s ease, transform 0.7s ease;
     }
-
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr}
-      .powerwall{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .model-grid{grid-template-columns:1fr}
-      h1{font-size:3rem}
-      .monthly-chart{grid-template-columns:repeat(6,1fr);height:auto}
-      .bar-stack{height:140px}
+    .reveal.is-visible{
+      opacity:1;
+      transform:translateY(0);
     }
-    @media (max-width: 640px){
-      body{padding:24px 14px 50px}
-      h1{font-size:2.4rem}
-      .hero-card{gap:12px}
-      .monthly-chart{grid-template-columns:repeat(4,1fr)}
-      .rate-row{grid-template-columns:1fr}
-      .btn{width:100%;justify-content:center}
+    @media (min-width: 860px){
+      body{padding:36px 24px 90px}
+      .hero{padding:36px 42px}
+      .grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .stats{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .timeline{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .itinerary{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .budget-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .split{grid-template-columns:repeat(2, minmax(0,1fr))}
     }
     @media (prefers-reduced-motion: reduce){
-      .reveal{animation:none}
+      .reveal{opacity:1;transform:none}
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="ribbon"></div>
-
-    <header class="hero reveal" style="--delay:0.05s">
-      <div>
-        <div class="kicker">Orcutt, California • Solar + Powerwall Performance Dossier</div>
-        <h1>5848 Lady Bells Dr</h1>
-        <p class="hero-sub">A retro-civic energy portrait for 2025. Built to spotlight solar capture, Powerwall time-shifting, and the grid delta at this address.</p>
-        <div class="badge-row">
-          <div class="badge">8.2 kW Solar Array</div>
-          <div class="badge alt">27 kWh Storage</div>
-          <div class="badge gold">Self-Consumption 85.3%</div>
-        </div>
+  <main class="page">
+    <header class="hero reveal">
+      <div class="eyebrow">Fall 2026 Plan</div>
+      <h1>Argentina + Chile Study Abroad</h1>
+      <p>Human Rights & Cultural Memory program with a Patagonia break and a Rio de Janeiro extension at the end. Mobile-first plan with a clean route, budget tiers, and a tight checklist.</p>
+      <div class="chip-row">
+        <div class="chip">Buenos Aires</div>
+        <div class="chip alt">Patagonia</div>
+        <div class="chip">Santiago</div>
+        <div class="chip sun">Rio (Post)</div>
       </div>
-      <div class="hero-card">
-        <div>
-          <div class="seal">CIVIC<br>ENERGY<br>FILE</div>
-          <h2>2025 Coverage</h2>
-          <ul>
-            <li>Annual Solar Generation: <span>10,751 kWh</span></li>
-            <li>Home Consumption: <span>16,064 kWh</span></li>
-            <li>Energy Independence: <span>56.1%</span></li>
-            <li>Net Grid Import: <span>5,406 kWh</span></li>
-          </ul>
-        </div>
-        <div class="kicker">Report Issued: Feb 10, 2026</div>
-      </div>
+      <div class="route">Route: <span>Buenos Aires</span> -> El Calafate -> El Chalten -> <span>Santiago</span> -> <span>Rio</span></div>
     </header>
 
-    <section class="section reveal" style="--delay:0.1s">
-      <div class="section-title">Headline Metrics</div>
-      <div class="stats">
-        <div class="stat">
-          <div class="label">Solar Generated</div>
-          <div class="value">10,751 kWh</div>
-          <div class="detail">Avg 29.5 kWh/day</div>
-        </div>
-        <div class="stat">
-          <div class="label">Energy Independence</div>
-          <div class="value">56.1%</div>
-          <div class="detail">Solar + Powerwall share of usage</div>
-        </div>
-        <div class="stat">
-          <div class="label">Home Consumption</div>
-          <div class="value">16,064 kWh</div>
-          <div class="detail">Avg 44.0 kWh/day</div>
-        </div>
-        <div class="stat">
-          <div class="label">Solar Kept On-Site</div>
-          <div class="value">9,174 kWh</div>
-          <div class="detail">Used directly or stored</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" style="--delay:0.15s">
-      <div class="section-title">Powerwall Advantage</div>
-      <div class="powerwall">
-        <div class="highlight">
-          <div class="big">4,259 kWh</div>
-          <div class="sub">Powerwall-delivered energy powering the home in 2025.</div>
-          <div class="sub">98.5% of Powerwall charging came from solar, preserving grid savings.</div>
-          <div class="sub">97.9% of Powerwall discharge served the home, not the grid.</div>
-        </div>
-        <div class="powerwall-grid">
-          <div class="powerwall-card">
-            <strong>Powerwall Charged</strong>
-            4,487 kWh total, with 4,417 kWh from solar and 69 kWh from grid.
+    <section class="card reveal">
+      <h2 class="section-title">Program Snapshot</h2>
+      <div class="grid">
+        <div class="stats">
+          <div class="stat">
+            <div class="label">Window</div>
+            <div class="value">Mid Aug - Mid Nov (TBD)</div>
+            <div class="note">Placeholder dates until UCEAP posts the calendar.</div>
           </div>
-          <div class="powerwall-card">
-            <strong>Time-Shifted Solar</strong>
-            4,417 kWh of solar stored for evenings, storms, and peak rates.
+          <div class="stat">
+            <div class="label">Credits</div>
+            <div class="value">5 courses / 14 semester units</div>
+            <div class="note">Spanish course required for all levels.</div>
           </div>
-          <div class="powerwall-card">
-            <strong>Grid Relief</strong>
-            4,259 kWh of stored energy offset grid imports at the home.
+          <div class="stat">
+            <div class="label">Schedule</div>
+            <div class="value">Mon-Fri, 9:30a-4:30p</div>
+            <div class="note">Film screenings and excursions may run on weekends.</div>
+          </div>
+          <div class="stat">
+            <div class="label">Housing</div>
+            <div class="value">Homestay + breakfast/dinner</div>
+            <div class="note">25-40 min commute by public transport.</div>
+          </div>
+        </div>
+        <div class="card" style="background:#fffdf6">
+          <h3 class="section-title" style="font-size:1.4rem">Core Courses</h3>
+          <div class="checklist">
+            <li>Human Rights, Politics and Culture in Argentina</li>
+            <li>Human Rights and Memory in Argentina</li>
+            <li>Spanish for Human Rights (intensive week + reviews)</li>
+            <li>Human Rights, Social Justice, and Transitional Justice in Chile</li>
+            <li>Memory and Human Rights: Chilean Literature, Film, Media</li>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" style="--delay:0.2s">
-      <div class="section-title">Energy Flow Ledger</div>
-      <div class="flow-bars">
-        <div>
-          <div class="kicker">Home Supply Mix (2025)</div>
-          <div class="bar" aria-label="Home supply mix">
-            <span class="solar" style="width:29.6%"></span>
-            <span class="powerwall" style="width:26.5%"></span>
-            <span class="grid" style="width:43.9%"></span>
-          </div>
-          <div class="bar-labels">
-            <span>Solar Direct 29.6%</span>
-            <span>Powerwall 26.5%</span>
-            <span>Grid 43.9%</span>
-          </div>
-        </div>
-        <div>
-          <div class="kicker">Solar Allocation (2025)</div>
-          <div class="bar" aria-label="Solar allocation">
-            <span class="solar" style="width:44.2%"></span>
-            <span class="powerwall" style="width:41.1%"></span>
-            <span class="grid" style="width:14.7%"></span>
-          </div>
-          <div class="bar-labels">
-            <span>To Home 44.2%</span>
-            <span>To Powerwall 41.1%</span>
-            <span>To Grid 14.7%</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" style="--delay:0.25s">
-      <div class="section-title">Monthly Solar Generation (kWh)</div>
-      <div class="monthly-chart" role="img" aria-label="Monthly solar generation in kWh">
-        <div class="month" style="--height:9.7%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Jan</label>
-          <small>138</small>
-        </div>
-        <div class="month" style="--height:24.4%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Feb</label>
-          <small>347</small>
-        </div>
-        <div class="month" style="--height:34.3%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Mar</label>
-          <small>488</small>
-        </div>
-        <div class="month" style="--height:87.1%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Apr</label>
-          <small>1,239</small>
-        </div>
-        <div class="month" style="--height:100%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>May</label>
-          <small>1,422</small>
-        </div>
-        <div class="month" style="--height:96.8%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Jun</label>
-          <small>1,377</small>
-        </div>
-        <div class="month" style="--height:95.5%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Jul</label>
-          <small>1,358</small>
-        </div>
-        <div class="month" style="--height:92.5%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Aug</label>
-          <small>1,316</small>
-        </div>
-        <div class="month" style="--height:64.6%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Sep</label>
-          <small>918</small>
-        </div>
-        <div class="month" style="--height:67.6%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Oct</label>
-          <small>962</small>
-        </div>
-        <div class="month" style="--height:42.7%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Nov</label>
-          <small>608</small>
-        </div>
-        <div class="month" style="--height:40.7%">
-          <div class="bar-stack"><div class="bar-fill"></div></div>
-          <label>Dec</label>
-          <small>579</small>
-        </div>
-      </div>
-      <p class="fineprint">Peak production month: May (1,422 kWh). Lowest month: January (138 kWh).</p>
-    </section>
-
-    <section class="section reveal" style="--delay:0.4s">
-      <div class="section-title">Rate Plan + Savings Model</div>
-      <div class="grid-2">
-        <div class="panel">
-          <h3>PG&amp;E TOU-D Schedule (NEM 3.0)</h3>
+    <section class="card reveal">
+      <h2 class="section-title">Timeline (Draft)</h2>
+      <div class="timeline">
+        <div class="phase">
+          <h3>Phase 0 - Pre-departure (May-Aug)</h3>
           <ul>
-            <li><strong>Peak Window:</strong> 5–8 pm, weekdays</li>
-            <li><strong>Off-Peak:</strong> all other hours</li>
-            <li><strong>Summer:</strong> June–September</li>
-            <li><strong>Winter:</strong> October–May</li>
-          </ul>
-          <div class="rate-table" aria-label="TOU-D total bundled rates">
-            <div class="rate-row"><span>Season</span><span>Peak</span><span>Off-Peak</span></div>
-            <div class="rate-row"><span>Summer</span><span>$0.53623</span><span>$0.40127</span></div>
-            <div class="rate-row"><span>Winter</span><span>$0.44662</span><span>$0.40801</span></div>
-          </div>
-          <p class="fineprint">Rates shown are total bundled TOU-D prices effective January 1, 2026. Adjust as utility pricing changes.</p>
-        </div>
-        <div class="panel">
-          <h3>NBT Export Credits</h3>
-          <ul>
-            <li><strong>Export credits:</strong> based on CPUC avoided cost values.</li>
-            <li><strong>ACC Plus adder:</strong> varies by interconnection year.</li>
-            <li><strong>Powerwall impact:</strong> keeps solar on-site when export credits are lower.</li>
-          </ul>
-          <div class="form-grid">
-            <div class="control">
-              <label for="accBase">ACC Base ($/kWh)</label>
-              <input id="accBase" class="model-input" type="number" step="0.001" value="0.05">
-            </div>
-            <div class="control">
-              <label for="accPlus">ACC Plus Adder</label>
-              <select id="accPlus" class="model-input">
-                <option value="0.0132">2025 interconnection (+$0.0132)</option>
-                <option value="0.0088">2026 interconnection (+$0.0088)</option>
-              </select>
-            </div>
-          </div>
-          <p class="fineprint">Export credits are time-varying; the model uses an editable average value.</p>
-        </div>
-      </div>
-
-      <div class="model-grid">
-        <div class="panel">
-          <h3>Model Assumptions (Editable)</h3>
-          <div class="form-grid">
-            <div class="control">
-              <label for="peakShare">Peak Share of Imports</label>
-              <input id="peakShare" class="model-input" type="range" min="0" max="60" value="25">
-              <div class="control-note"><span id="peakShareLabel">25%</span> of grid imports at peak rates</div>
-            </div>
-            <div class="control">
-              <label for="priceEscalation">Utility Price Escalation</label>
-              <input id="priceEscalation" class="model-input" type="number" step="0.1" value="3">
-              <div class="control-note">Percent per year</div>
-            </div>
-            <div class="control">
-              <label for="systemCost">System Cost</label>
-              <input id="systemCost" class="model-input" type="number" step="100" value="22000">
-            </div>
-            <div class="control">
-              <label for="rebate">Rebate Check</label>
-              <input id="rebate" class="model-input" type="number" step="100" value="13000">
-            </div>
-            <div class="control">
-              <label for="financedAmount">Financed Amount</label>
-              <input id="financedAmount" class="model-input" type="number" step="100" value="9000">
-            </div>
-            <div class="control">
-              <label for="loanApr">Loan APR</label>
-              <input id="loanApr" class="model-input" type="number" step="0.01" value="7.25">
-            </div>
-            <div class="control">
-              <label for="loanTerm">Loan Term (Years)</label>
-              <input id="loanTerm" class="model-input" type="number" step="1" value="10">
-            </div>
-          </div>
-          <p class="fineprint">Update financed amount if your loan covered the full system cost before the rebate check was applied.</p>
-        </div>
-
-        <div class="panel">
-          <h3>Estimated 2025 Bill Impact</h3>
-          <div class="stat-row">
-            <div><span>Utility Cost Without Solar</span><strong id="billNoSolar">$0</strong></div>
-            <div><span>Utility Cost With Solar</span><strong id="billWithSolar">$0</strong></div>
-            <div><span>Export Credits</span><strong id="exportCredits">$0</strong></div>
-            <div><span>Net Energy Bill</span><strong id="netBill">$0</strong></div>
-          </div>
-          <div class="big-figure">Annual Savings: <span id="annualSavings">$0</span></div>
-          <div class="stat-row">
-            <div><span>Loan Payment (Monthly)</span><strong id="loanPayment">$0</strong></div>
-            <div><span>Loan Payment (Annual)</span><strong id="loanPaymentAnnual">$0</strong></div>
-          </div>
-          <p class="fineprint">Modeled from your 2025 energy flows with TOU-D rates and average export credits.</p>
-        </div>
-      </div>
-
-      <div class="panel price-shield">
-        <h3>Protection From Rising Energy Prices</h3>
-        <p>With solar + Powerwall supplying <strong id="shieldPct">56.1%</strong> of annual usage, only <strong id="exposedPct">43.9%</strong> remains exposed to utility price increases. A 1% retail rate increase adds about <strong id="rateShock">$0</strong> per year to the grid-supplied portion at today’s import volume.</p>
-        <p class="fineprint">Powerwall time-shifted 4,417 kWh of solar into evening hours, reducing peak-rate exposure.</p>
-      </div>
-
-      <div class="roi-block">
-        <h3>ROI Over Time (25-Year View)</h3>
-        <div class="roi-meta">
-          <div><strong>Cash Payback:</strong> <span id="paybackCash">—</span></div>
-          <div><strong>Financed Payback:</strong> <span id="paybackLoan">—</span></div>
-          <div><strong>Net System Cost:</strong> <span id="netCost">$0</span></div>
-          <div><strong>Total Interest (Loan Term):</strong> <span id="loanInterest">$0</span></div>
-        </div>
-        <svg class="roi-chart" id="roiChart" viewBox="0 0 720 260" role="img" aria-label="ROI chart for cumulative savings">
-          <rect x="0" y="0" width="720" height="260" fill="none"></rect>
-          <line id="roiZero" x1="40" x2="700" y1="130" y2="130" stroke="#2b3d57" stroke-width="1" stroke-dasharray="4 6"></line>
-          <path id="roiCashPath" d="" fill="none" stroke="#b7422a" stroke-width="3"></path>
-          <path id="roiLoanPath" d="" fill="none" stroke="#2d6e6a" stroke-width="3"></path>
-        </svg>
-        <div class="roi-legend">
-          <div class="roi-key"><span class="roi-swatch"></span>Cash purchase cumulative savings</div>
-          <div class="roi-key"><span class="roi-swatch loan"></span>Financed net cashflow</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" style="--delay:0.35s">
-      <div class="section-title">Live Tesla Data Connector</div>
-      <div class="grid-2">
-        <div class="panel">
-          <h3>Live Feed Status</h3>
-          <div class="status" id="liveStatus">Static 2025 dataset loaded</div>
-          <button class="btn" id="liveBtn">Connect Live Tesla Feed</button>
-          <p class="fineprint">This page expects a secure local proxy at <strong>/api/tesla-energy</strong>. Tokens should never live in the browser.</p>
-        </div>
-        <div class="panel">
-          <h3>Expected Payload (JSON)</h3>
-          <pre class="code">{\n  \"months\": [\"Jan\",\"Feb\",\"Mar\",...],\n  \"homeKwh\": [151.1,802.1,1181.5,...],\n  \"gridImportKwh\": [0.0,462.1,724.8,...],\n  \"gridExportKwh\": [0.0,0.1,28.4,...]\n}</pre>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" style="--delay:0.3s">
-      <div class="section-title">System Configuration + Grid Ledger</div>
-      <div class="grid-2">
-        <div class="panel">
-          <h3>System Configuration</h3>
-          <ul>
-            <li><strong>Solar Array:</strong> 8.2 kW</li>
-            <li><strong>Storage:</strong> 2× Powerwall (13.5 kWh each)</li>
-            <li><strong>Total Storage:</strong> 27 kWh usable</li>
-            <li><strong>Rate Plan:</strong> NEM 3.0 TOU-D</li>
-            <li><strong>Coverage Window:</strong> January–December 2025</li>
+            <li>Confirm passport validity and health clearance.</li>
+            <li>Book flight to Buenos Aires once dates drop.</li>
+            <li>Complete housing questionnaire and course selection.</li>
           </ul>
         </div>
-        <div class="panel">
-          <h3>Grid Interaction</h3>
+        <div class="phase">
+          <h3>Phase 1 - Buenos Aires Session</h3>
           <ul>
-            <li><strong>Grid Imported:</strong> 7,095 kWh</li>
-            <li><strong>Grid Exported:</strong> 1,690 kWh</li>
-            <li><strong>Net Grid Import:</strong> 5,406 kWh</li>
-            <li><strong>Solar Exported:</strong> 1,577 kWh</li>
+            <li>Spanish intensive week + orientation.</li>
+            <li>Two Argentina courses + site visits.</li>
+            <li>Evenings: local culture, museums, memorials.</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Phase 2 - Patagonia Break (1 week)</h3>
+          <ul>
+            <li>3 nights El Calafate.</li>
+            <li>3 nights El Chalten.</li>
+            <li>Return to Santiago for session 2.</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Phase 3 - Santiago Session</h3>
+          <ul>
+            <li>Two Chile courses + community org visits.</li>
+            <li>Research topic for final presentation.</li>
+            <li>Explore city landmarks and local culture.</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Phase 4 - Rio Extension (5 days)</h3>
+          <ul>
+            <li>Post-program vacation in Rio de Janeiro.</li>
+            <li>Beach days, culture, and city highlights.</li>
+            <li>Fly home from Rio or connect via Santiago.</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <h3>Phase 5 - Return + Wrap</h3>
+          <ul>
+            <li>Transit home mid-November.</li>
+            <li>Grades post mid- to late-January.</li>
+            <li>Save receipts for reimbursement and aid.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <footer>
-      <div><strong>Data Source:</strong> Tesla energy flow export (monthly totals). Values converted from Wh to kWh and rounded to nearest whole kWh where shown.</div>
-      <div class="fineprint">All figures refer to 2025 only. Savings model uses current TOU-D rates and average export credits; update assumptions for exact billing. Report refreshed February 10, 2026 for 5848 Lady Bells Dr, Orcutt, CA 93455.</div>
-    </footer>
-  </div>
+    <section class="card reveal">
+      <h2 class="section-title">Patagonia Break (3 + 3 Nights)</h2>
+      <div class="itinerary">
+        <div class="day">
+          <strong>Day 1 - Fly to El Calafate</strong>
+          Check in, shoreline walk, stock up on snacks.
+        </div>
+        <div class="day">
+          <strong>Day 2 - Perito Moreno Day</strong>
+          Full-day glacier visit with boardwalks and viewpoints.
+        </div>
+        <div class="day">
+          <strong>Day 3 - Buffer + Lago Argentino</strong>
+          Flexible day for a boat excursion or rest.
+        </div>
+        <div class="day">
+          <strong>Day 4 - Transfer to El Chalten</strong>
+          Bus transfer and short sunset hike.
+        </div>
+        <div class="day">
+          <strong>Day 5 - Main Hike</strong>
+          Full-day trek (Laguna de los Tres or alternative).
+        </div>
+        <div class="day">
+          <strong>Day 6 - Secondary Hike</strong>
+          Shorter hike + travel prep for Santiago.
+        </div>
+      </div>
+      <div class="footnote">Note: park fees and long-haul flights are not included in daily spend estimates.</div>
+    </section>
+
+    <section class="card reveal">
+      <h2 class="section-title">Rio Extension (5 Days)</h2>
+      <div class="itinerary">
+        <div class="day">
+          <strong>Day 1 - Arrive + Sunset</strong>
+          Hotel check-in, Copacabana or Ipanema evening walk.
+        </div>
+        <div class="day">
+          <strong>Day 2 - City Icons</strong>
+          Christ the Redeemer early slot + neighborhood stroll.
+        </div>
+        <div class="day">
+          <strong>Day 3 - Sugarloaf + Beach</strong>
+          Cable car in the morning, beach afternoon.
+        </div>
+        <div class="day">
+          <strong>Day 4 - Culture Day</strong>
+          Museum or street art, food markets, live music.
+        </div>
+        <div class="day">
+          <strong>Day 5 - Pack + Depart</strong>
+          Brunch, souvenirs, head to airport.
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal">
+      <h2 class="section-title">Budget Overview</h2>
+      <div class="budget-grid">
+        <div class="budget-card">
+          <h4>Program Budget (Estimate)</h4>
+          <div class="budget-row"><span>UC Tuition</span><span>$7,467</span></div>
+          <div class="budget-row"><span>UCEAP Fees</span><span>$4,500</span></div>
+          <div class="budget-row"><span>Campus Fees</span><span>$700</span></div>
+          <div class="budget-row"><span>Housing</span><span>$3,300</span></div>
+          <div class="budget-row"><strong>Total Paid to UCEAP</strong><strong>$15,967</strong></div>
+          <div class="budget-row"><span>Meals</span><span>$1,200</span></div>
+          <div class="budget-row"><span>Incidentals/Transport/Books</span><span>$900</span></div>
+          <div class="budget-row"><span>Predeparture</span><span>$300</span></div>
+          <div class="budget-row"><span>Airfare (roundtrip)</span><span>$1,200</span></div>
+          <div class="budget-row"><strong>Total Out of Pocket</strong><strong>$3,600</strong></div>
+          <div class="budget-row"><strong>Total Program Cost</strong><strong>$19,567</strong></div>
+          <span class="budget-tag">User Estimate</span>
+        </div>
+        <div class="budget-card">
+          <h4>Side Trips (Daily Spend Only)</h4>
+          <div class="compare">
+            <div><strong>Patagonia (6 nights)</strong><br>Budget: $165 | Mid-range: $381</div>
+            <div><strong>Rio (5 days)</strong><br>Budget: $225 | Mid-range: $580</div>
+            <div><strong>Add-on Subtotal</strong><br>Budget: $390 | Mid-range: $961</div>
+          </div>
+          <div class="footnote">Daily spend ranges include lodging, food, and local transport only. Add flights and activities once you book.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal">
+      <h2 class="section-title">Funding Snapshot</h2>
+      <div class="budget-grid">
+        <div class="budget-card">
+          <div class="budget-row"><span>Gift Aid</span><span>$12,498</span></div>
+          <div class="budget-row"><span>Federal Direct Loans</span><span>$4,166</span></div>
+          <div class="budget-row"><span>Parent/Private Loans</span><span>$2,903</span></div>
+          <div class="budget-row"><strong>Total Funding</strong><strong>$19,567</strong></div>
+          <div class="footnote">Match to estimated EAP total budget. Confirm with the financial aid office.</div>
+        </div>
+        <div class="budget-card">
+          <h4>Budget Buffer</h4>
+          <div class="checklist">
+            <li>Set a weekly discretionary cap (food + transit + fun).</li>
+            <li>Reserve 10-15% as a contingency buffer.</li>
+            <li>Keep 1 extra week of essentials in USD.</li>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal">
+      <h2 class="section-title">Prep Checklist</h2>
+      <div class="split">
+        <ul class="checklist">
+          <li>Passport valid 6+ months past return date.</li>
+          <li>Upload health clearance and travel forms.</li>
+          <li>Book flights once program dates are released.</li>
+          <li>Set up bank alerts and no-foreign-fee card.</li>
+          <li>Download offline maps for BA, Santiago, Rio.</li>
+        </ul>
+        <ul class="checklist">
+          <li>Confirm Brazil entry rules before booking.</li>
+          <li>Pack layers for Patagonia wind and cold.</li>
+          <li>Bring sturdy hikers + rain shell.</li>
+          <li>Keep digital copies of docs in the cloud.</li>
+          <li>Share itinerary with family and program staff.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
   <script>
-    const energyData = {
-      months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-      homeKwh: [151.094,802.12,1181.543,1244.782,1346.794,1626.279,1426.799,1444.192,1529.012,1551.86,1700.763,2059.217],
-      gridImportKwh: [0.0,462.085,724.843,283.821,369.47,590.04,385.406,358.937,684.006,644.552,1101.774,1490.566],
-      gridExportKwh: [0.001,0.127,28.438,261.076,438.415,329.448,309.02,216.691,58.221,38.243,5.548,4.335]
-    };
-
-    const ratePlan = {
-      summer: { peak: 0.53623, offpeak: 0.40127 },
-      winter: { peak: 0.44662, offpeak: 0.40801 },
-      summerMonths: [5,6,7,8] // Jun-Sep (0-based)
-    };
-
-    const fmtCurrency0 = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
-    const fmtCurrency2 = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 });
-    const fmtNumber = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 });
-
-    const inputs = {
-      peakShare: document.getElementById("peakShare"),
-      peakShareLabel: document.getElementById("peakShareLabel"),
-      priceEscalation: document.getElementById("priceEscalation"),
-      systemCost: document.getElementById("systemCost"),
-      rebate: document.getElementById("rebate"),
-      financedAmount: document.getElementById("financedAmount"),
-      loanApr: document.getElementById("loanApr"),
-      loanTerm: document.getElementById("loanTerm"),
-      accBase: document.getElementById("accBase"),
-      accPlus: document.getElementById("accPlus")
-    };
-
-    const outputs = {
-      billNoSolar: document.getElementById("billNoSolar"),
-      billWithSolar: document.getElementById("billWithSolar"),
-      exportCredits: document.getElementById("exportCredits"),
-      netBill: document.getElementById("netBill"),
-      annualSavings: document.getElementById("annualSavings"),
-      loanPayment: document.getElementById("loanPayment"),
-      loanPaymentAnnual: document.getElementById("loanPaymentAnnual"),
-      paybackCash: document.getElementById("paybackCash"),
-      paybackLoan: document.getElementById("paybackLoan"),
-      netCost: document.getElementById("netCost"),
-      loanInterest: document.getElementById("loanInterest"),
-      shieldPct: document.getElementById("shieldPct"),
-      exposedPct: document.getElementById("exposedPct"),
-      rateShock: document.getElementById("rateShock")
-    };
-
-    function sum(list) {
-      return list.reduce((acc, val) => acc + val, 0);
-    }
-
-    function blendedRate(season, peakShare) {
-      const rates = ratePlan[season];
-      return peakShare * rates.peak + (1 - peakShare) * rates.offpeak;
-    }
-
-    function computeModel() {
-      const peakShare = (parseFloat(inputs.peakShare.value) || 0) / 100;
-      const escalation = (parseFloat(inputs.priceEscalation.value) || 0) / 100;
-      const accBase = parseFloat(inputs.accBase.value) || 0;
-      const accPlus = parseFloat(inputs.accPlus.value) || 0;
-      const exportRate = accBase + accPlus;
-
-      const systemCost = parseFloat(inputs.systemCost.value) || 0;
-      const rebate = parseFloat(inputs.rebate.value) || 0;
-      const netCost = Math.max(systemCost - rebate, 0);
-      const principal = parseFloat(inputs.financedAmount.value) || 0;
-      const apr = (parseFloat(inputs.loanApr.value) || 0) / 100;
-      const termYears = Math.max(parseInt(inputs.loanTerm.value, 10) || 0, 0);
-
-      inputs.peakShareLabel.textContent = `${Math.round(peakShare * 100)}%`;
-
-      let importNoSolar = 0;
-      let importWithSolar = 0;
-      let exportCredits = 0;
-
-      energyData.months.forEach((month, idx) => {
-        const season = ratePlan.summerMonths.includes(idx) ? "summer" : "winter";
-        const rate = blendedRate(season, peakShare);
-        importNoSolar += energyData.homeKwh[idx] * rate;
-        importWithSolar += energyData.gridImportKwh[idx] * rate;
-        exportCredits += energyData.gridExportKwh[idx] * exportRate;
-      });
-
-      const netBill = importWithSolar - exportCredits;
-      const savings = importNoSolar - netBill;
-
-      const gridImportTotal = sum(energyData.gridImportKwh);
-      const homeTotal = sum(energyData.homeKwh);
-      const exposedPct = homeTotal > 0 ? (gridImportTotal / homeTotal) * 100 : 0;
-      const shieldPct = 100 - exposedPct;
-      const rateShock = (importWithSolar * 0.01);
-
-      outputs.billNoSolar.textContent = fmtCurrency0.format(importNoSolar);
-      outputs.billWithSolar.textContent = fmtCurrency0.format(importWithSolar);
-      outputs.exportCredits.textContent = `-${fmtCurrency0.format(exportCredits)}`;
-      outputs.netBill.textContent = fmtCurrency0.format(netBill);
-      outputs.annualSavings.textContent = fmtCurrency0.format(savings);
-      outputs.shieldPct.textContent = `${fmtNumber.format(shieldPct)}%`;
-      outputs.exposedPct.textContent = `${fmtNumber.format(exposedPct)}%`;
-      outputs.rateShock.textContent = fmtCurrency0.format(rateShock);
-
-      const monthlyRate = apr / 12;
-      const totalPayments = termYears * 12;
-      let monthlyPayment = 0;
-      if (principal > 0 && monthlyRate > 0 && totalPayments > 0) {
-        monthlyPayment = principal * (monthlyRate / (1 - Math.pow(1 + monthlyRate, -totalPayments)));
-      }
-      const annualPayment = monthlyPayment * 12;
-      const totalInterest = totalPayments > 0 ? (monthlyPayment * totalPayments - principal) : 0;
-
-      outputs.loanPayment.textContent = fmtCurrency0.format(monthlyPayment);
-      outputs.loanPaymentAnnual.textContent = fmtCurrency0.format(annualPayment);
-      outputs.netCost.textContent = fmtCurrency0.format(netCost);
-      outputs.loanInterest.textContent = fmtCurrency0.format(totalInterest);
-
-      renderRoiChart(savings, escalation, netCost, monthlyPayment, termYears);
-    }
-
-    function renderRoiChart(baseSavings, escalation, netCost, monthlyPayment, termYears) {
-      const cashValues = [-netCost];
-      const loanValues = [0];
-      const horizon = 25;
-      const annualLoan = monthlyPayment * 12;
-
-      for (let year = 1; year <= horizon; year++) {
-        const yearSavings = baseSavings * Math.pow(1 + escalation, year - 1);
-        cashValues.push(cashValues[year - 1] + yearSavings);
-        const loanCost = year <= termYears ? annualLoan : 0;
-        loanValues.push(loanValues[year - 1] + (yearSavings - loanCost));
-      }
-
-      const minVal = Math.min(...cashValues, ...loanValues);
-      const maxVal = Math.max(...cashValues, ...loanValues);
-      const range = maxVal - minVal || 1;
-      const padding = 40;
-      const width = 720;
-      const height = 260;
-
-      const scaleX = (index) => padding + (index / horizon) * (width - padding * 2);
-      const scaleY = (value) => padding + ((maxVal - value) / range) * (height - padding * 2);
-
-      const cashPath = cashValues.map((val, idx) => `${idx === 0 ? "M" : "L"}${scaleX(idx)} ${scaleY(val)}`).join(" ");
-      const loanPath = loanValues.map((val, idx) => `${idx === 0 ? "M" : "L"}${scaleX(idx)} ${scaleY(val)}`).join(" ");
-
-      document.getElementById("roiCashPath").setAttribute("d", cashPath);
-      document.getElementById("roiLoanPath").setAttribute("d", loanPath);
-
-      const zeroY = scaleY(0);
-      const zeroLine = document.getElementById("roiZero");
-      zeroLine.setAttribute("y1", zeroY);
-      zeroLine.setAttribute("y2", zeroY);
-
-      const paybackCash = cashValues.findIndex((val, idx) => idx > 0 && val >= 0);
-      const paybackLoan = loanValues.findIndex((val, idx) => idx > 0 && val >= 0);
-
-      outputs.paybackCash.textContent = paybackCash > 0 ? `Year ${paybackCash}` : "Beyond 25 years";
-      outputs.paybackLoan.textContent = paybackLoan > 0 ? `Year ${paybackLoan}` : "Beyond 25 years";
-    }
-
-    document.querySelectorAll(".model-input").forEach((input) => {
-      input.addEventListener("input", computeModel);
-      input.addEventListener("change", computeModel);
-    });
-
-    const liveBtn = document.getElementById("liveBtn");
-    const liveStatus = document.getElementById("liveStatus");
-    if (liveBtn && liveStatus) {
-      liveBtn.addEventListener("click", async () => {
-        liveStatus.textContent = "Connecting...";
-        try {
-          const response = await fetch("/api/tesla-energy");
-          if (!response.ok) throw new Error("Endpoint not available");
-          const payload = await response.json();
-          if (!payload || !Array.isArray(payload.homeKwh)) throw new Error("Bad payload");
-          energyData.months = payload.months || energyData.months;
-          energyData.homeKwh = payload.homeKwh || energyData.homeKwh;
-          energyData.gridImportKwh = payload.gridImportKwh || energyData.gridImportKwh;
-          energyData.gridExportKwh = payload.gridExportKwh || energyData.gridExportKwh;
-          liveStatus.textContent = "Live data connected";
-          computeModel();
-        } catch (error) {
-          liveStatus.textContent = "Live endpoint not configured — using static data.";
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
         }
       });
-    }
+    }, {threshold: 0.2});
 
-    computeModel();
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
